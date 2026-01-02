@@ -13,12 +13,12 @@
 typedef struct FU_ARR{
     void** value;
     size_t size;
-    size_t used; //已使用
+    size_t used; //已储存元素数
 }FU_ARR;
 
 int fuarr_put(FU_ARR *arr, void *v);
 
-FU_ARR* fuarr_creat_arr(size_t s) {
+FU_ARR *fuarr_creat_arr(size_t s) {
 // FU_ARR* fuarr_creat_arr(size_t s, size_t type_size);
     FU_ARR* arr = malloc(sizeof(FU_ARR));
     if(arr==NULL) return NULL;
@@ -30,7 +30,7 @@ FU_ARR* fuarr_creat_arr(size_t s) {
     return arr;
 }
 
-void* fuarr_get(FU_ARR *arr, ArrInt index) {
+void *fuarr_get(FU_ARR *arr, ArrInt index) {
     if( (index>=arr->used)||(arr==NULL)  ) {
         return NULL;
     }
@@ -70,7 +70,7 @@ int fuarr_set(FU_ARR *arr, ArrInt index, void* v) {
     return 0;
 }
 
-void* fuarr_pop(FU_ARR *arr) {
+void *fuarr_pop(FU_ARR *arr) {
     if(arr==NULL) return NULL;
     arr->used--;
     void *temp = arr->value[arr->used];
@@ -79,7 +79,7 @@ void* fuarr_pop(FU_ARR *arr) {
     return temp;
 }
 
-void* fuarr_del(FU_ARR *arr, ArrInt index) {
+void *fuarr_del(FU_ARR *arr, ArrInt index) {
     if(arr==NULL) return NULL;
     void *temp;
     arr->used--;
