@@ -42,6 +42,6 @@ void *fuarr_del(FU_ARR *arr, ArrInt index);
 void fuarr_free_container(FU_ARR *arr);
 
 // 删除arr这个容器，和数组的指针，仅适用于所有值均为malloc/relloc/calloc分配的内存的数组
-void fuarr_free_all(FU_ARR *arr)
+void fuarr_free_all(FU_ARR *arr);
 
 #endif
