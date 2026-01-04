@@ -15,8 +15,6 @@ typedef long ArrInt;
 
 typedef struct FU_ARR FU_ARR;
 
-
-
 FU_ARR* fuarr_creat_arr(size_t s);
 // FU_ARR* fuarr_creat_arr(size_t s, size_t type_size);
 
@@ -26,11 +24,16 @@ void *fuarr_get(FU_ARR *arr, ArrInt index);
 // 向数组追加一个指针
 int fuarr_put(FU_ARR *arr, void *v);
 
-// 设置 index 处的指针，超出数组长度，或 arr 是空指针返回NULL
+// 设置 index 处的指针
+// 只允许对现有数据进行修改
+// 如超出数组长度，或 arr 是空指针返回NULL
 int fuarr_set(FU_ARR *arr, ArrInt index, void *v);
 
 // 返回数组长度
 ArrInt fuarr_len(FU_ARR *arr);
+
+// 返回数组大小
+ArrInt fuarr_size(FU_ARR *arr);
 
 // 弹出数组末尾的指针，并返回它，如果数组长度为0，或arr为空指针，则返回NULL
 void *fuarr_pop(FU_ARR *arr);
